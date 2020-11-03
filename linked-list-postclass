@@ -1,0 +1,55 @@
+/*
+class Node {
+    Node next;
+    int val;
+
+    Node(int val) {
+        this.val = val;
+        next = null;
+    }
+}
+*/
+
+
+//Insert Node at given position
+public static Node addElement(Node head, int k ,int pos ) {
+    //Getting to the position
+    int count=1;
+    Node prevNode = null;
+    Node currentNode = head;
+    Node newNode = new Node(k);
+    while(currentNode!=null){
+        if(count==pos){
+            //Insert element here and break the loop
+            if(prevNode!=null){
+                newNode.next = prevNode.next;
+                prevNode.next = newNode;
+                break;
+            }else{ // If position is first element
+                newNode.next = head;
+                return newNode;
+            }
+        }
+        count++;
+        prevNode = currentNode;
+        currentNode = currentNode.next;
+    }
+    return head;
+}
+
+
+
+
+//Reversing the linked list
+public static Node ReverseLinkedList(Node head) {
+		// return the head of the modified linked list
+        Node prev = null;
+        Node current = head;
+        while(current!=null){
+            Node temp = current.next;
+            current.next = prev;
+            prev = current;
+            current = temp;
+        }
+        return prev;
+    }
