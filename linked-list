@@ -1,0 +1,46 @@
+/*
+class Node {
+    Node next;
+    int val;
+
+    Node(int val) {
+        this.val = val;
+        next = null;
+    }
+}
+*/
+
+
+//Add node at head
+public static Node addElement(Node head, int k) {
+    Node newHead = new Node(k);
+    newHead.next = head;
+    return newHead;
+}
+
+
+//Add node at tail
+public static Node addElement(Node head, int k) {
+    //enter your code here
+    Node currentNode = head;
+    Node newNode = new Node(k);//Creating new node
+    while(currentNode != null){
+        if(currentNode.next == null){
+            currentNode.next = newNode; //Assign newNode as Tail
+            break;
+        }
+        currentNode = currentNode.next;
+    }
+    return head;
+}
+
+
+
+//Print the Linked list
+public static void printList(Node head) {
+		Node currentNode = head;
+        while(currentNode != null){
+            System.out.print(currentNode.val+" ");
+            currentNode = currentNode.next;
+        }
+}
